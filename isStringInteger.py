@@ -4,6 +4,7 @@ def is_string_integer(str):
     Args:
         str (string): a string 
     """    
+    str = str.strip()
     return str.isdecimal()
 
-print(is_string_integer(' 123'))
+
