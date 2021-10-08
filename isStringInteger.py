@@ -5,8 +5,8 @@ def is_string_integer(string):
         string (string): a string 
     """    
     assert isinstance(string,str)
-    string = string.strip()
-    return string.isdecimal()
+    assert len(string) == 1
+    return string.isdigit()
 
 
 
