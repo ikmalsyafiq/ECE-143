@@ -17,7 +17,9 @@ def encrypt_message(message,fname):
  :type fname: str
  :returns: list of 2-tuples
    '''
-
+    assert isinstance(fname,str)
+    assert isinstance(message,str)
+    
     def file_read(fname):
         content_array = []
         with open(fname) as f:
@@ -71,6 +73,11 @@ def decrypt_message(inlist,fname):
      :type fname: str
      :returns: string decrypted message
     '''
+    assert isinstance(inlist,list)
+    
+    assert len(inlist) == len(set(inlist))
+    
+    assert isinstance(fname,str)
     
     def file_read(fname):
         content_array = []
@@ -95,15 +102,5 @@ def decrypt_message(inlist,fname):
 
     decrypted_string = ' '.join(decrypted_messages)
     return decrypted_string
-
-mm = 'textfilechunkify.txt'
-message = 'let us not say we met late at the night about the secret'  
-print(encrypt_message(message,mm) )
-
-
-
-y = [(1394, 2), (1773, 11), (894, 10), (840, 1), (541, 2), (1192, 5), (1984, 7), (2112, 6), (1557, 2), (959, 8), (53, 10), (2232, 8), (552, 5)] 
-
-print(decrypt_message(encrypt_message(message,mm) ,mm))
 
 
