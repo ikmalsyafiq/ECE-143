@@ -11,9 +11,9 @@ def  split_count(x):
     Returns:
         dataframe: dataframe with count
     """    
-    #assert isinstance(x,pd)
+    assert isinstance(x,pd.Series)
     splitted = []
-    for i in x['Is there anything in particular you want to use Python for?']:
+    for i in x:
         splitted.append(i.split(','))
         y = list(chain.from_iterable(splitted))
     #print()
@@ -24,6 +24,8 @@ def  split_count(x):
     data = data.sort_values(by = ['Count'],ascending=True)
     data.reset_index(drop=True, inplace=True)
     return data
+
+
 
 
 
