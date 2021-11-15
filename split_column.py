@@ -14,7 +14,7 @@ def  split_count(x):
     assert isinstance(x,pd.Series)
     splitted = []
     for i in x:
-        splitted.append(i.split(','))
+        splitted.append(i.split(', '))
         y = list(chain.from_iterable(splitted))
     #print()
     counter=collections.Counter(y)
@@ -23,6 +23,7 @@ def  split_count(x):
     data = data.rename(columns={0: '', 1: 'Count'})
     data = data.sort_values(by = ['Count'],ascending=True)
     data.reset_index(drop=True, inplace=True)
+    data = data.set_index('')
     return data
 
 
